@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM debian:8
 MAINTAINER poul@poulsander.com
 ADD openarena-0.8.8-repack.zip /staging/
 ADD move_to_default_files.sh /staging/
