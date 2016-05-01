@@ -8,6 +8,13 @@ mkdir -p /opt && mkdir -p /staging/map_lists && mkdir -p /default_files
 adduser --disabled-password --gecos "OpenArena user" openarena
 mkdir -p /data
 
+#It is possible that openarena-0.8.8 was added in the Docker file if not we download it from the net
+if ! [ -f "/staging/openarena-0.8.8.zip" ]
+then
+cd /staging && wget http://download.tuxfamily.org/openarena/rel/088/openarena-0.8.8.zip -O openarena-0.8.8.zip
+fi 
+
+
 cd /staging && mv openarena-0.8.8.zip openarena.zip
 cd /staging && unzip /staging/openarena.zip -d /opt && rm /staging/openarena.zip
 mv /opt/openarena-0.8.8 /opt/openarena
