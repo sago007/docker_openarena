@@ -7,7 +7,7 @@ BASEOA=${OPENARENA_HOME}/baseoa
 mkdir -p "${BASEOA}"
 
 cd /default_files
-ls | xargs -n1 /opt/move_to_if_not_existing.sh "${BASEOA}"
+ls | xargs -n1 /opt/copy_to_if_not_existing.sh "${BASEOA}"
 
 SERVER_ARGS="+set fs_homepath /data/openarena +exec server_config_sample.cfg +map $OA_STARTMAP"
 
