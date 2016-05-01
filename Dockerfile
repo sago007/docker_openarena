@@ -10,8 +10,12 @@ ADD openarena_start_script.sh /opt/
 
 VOLUME ["/data"]
 
+#OpenArena needs this one port. It can be remapped in Docker
 EXPOSE 27960/udp 
-#EXPOSE 27950/udp
+
+
+ENV OA_STARTMAP oasago2
+ENV OA_STARTARGS
 
 USER openarena
 
