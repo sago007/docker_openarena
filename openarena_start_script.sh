@@ -9,7 +9,7 @@ mkdir -p "${BASEOA}"
 cd /default_files
 ls | xargs -n1 /opt/copy_to_if_not_existing.sh "${BASEOA}"
 
-SERVER_ARGS="+set fs_homepath /data/openarena +exec server_config_sample.cfg +map $OA_STARTMAP"
+SERVER_ARGS="+set fs_homepath /data/openarena +set net_port ${OA_PORT} +exec server_config_sample.cfg +map $OA_STARTMAP"
 
 # 1==LAN, 2==Internet
 DEDICATED_ARG="+set dedicated 2"
