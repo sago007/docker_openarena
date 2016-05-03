@@ -3,7 +3,7 @@ set -euo pipefail
 
 #The whole purpose of this script is to have an readable alternative that can build the image in one go
 
-apt-get update && apt-get install -y wget unzip
+apt-get update && apt-get install -y wget unzip nano
 mkdir -p /opt && mkdir -p /staging/map_lists && mkdir -p /default_files
 adduser --disabled-password --gecos "OpenArena user" openarena
 mkdir -p /data
@@ -29,3 +29,11 @@ apt-get purge -y wget unzip
 apt-get autoremove -y
 rm -rf /staging
 rm -rf /tmp/* /var/tmp/*
+cd /opt/openarena
+rm *.dll
+rm *.exe
+rm *.i386
+rm -rf __MACOSX
+rm -rf OpenArena.app
+rm -rf "OpenArena 0.8.8 r28.app"
+rm openarena.x86_64
