@@ -13,10 +13,13 @@ if ! [ -f "/staging/openarena-0.8.8.zip" ]
 then
 cd /staging && wget http://download.tuxfamily.org/openarena/rel/088/openarena-0.8.8.zip -O openarena-0.8.8.zip
 fi 
+cd /staging && wget http://files.poulsander.com/~poul19/public_files/oa/dev088/openarena_engine_2016-04-23_2d555ac662aef135c47d473d1d61a99b69cad14a.zip
+cd /staging && wget http://files.poulsander.com/~poul19/public_files/oa/dev088/openarena_gamecode_2015-10-01_b767acae0de31968331f9182c6afbab1376954b8.zip
 
 
 cd /staging && mv openarena-0.8.8.zip openarena.zip
 cd /staging && unzip /staging/openarena.zip -d /opt && rm /staging/openarena.zip
+cd /staging && unzip openarena_engine*.zip && unzip openarena_gamecode*.zip
 mv /opt/openarena-0.8.8 /opt/openarena
 cd /staging/map_lists && unzip /opt/openarena/baseoa/pak6-patch088.pk3 && ls *.org | xargs -n1 /staging/move_to_default_files.sh
 
@@ -27,8 +30,6 @@ chown -R openarena.openarena /default_files
 
 apt-get purge -y wget unzip
 apt-get autoremove -y
-rm -rf /staging
-rm -rf /tmp/* /var/tmp/*
 cd /opt/openarena
 rm *.dll
 rm *.exe
@@ -36,4 +37,8 @@ rm *.i386
 rm -rf __MACOSX
 rm -rf OpenArena.app
 rm -rf "OpenArena 0.8.8 r28.app"
-rm openarena.x86_64
+rm *.x86_64
+mv /staging/openarena_engine*/oa_ded.x86_64 ./
+
+rm -rf /staging
+rm -rf /tmp/* /var/tmp/*
