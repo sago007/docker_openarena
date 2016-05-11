@@ -3,7 +3,7 @@ set -euo pipefail
 
 #The whole purpose of this script is to have an readable alternative that can build the image in one go
 
-apt-get update && apt-get install -y wget unzip nano logrotate
+apt-get update && apt-get install -y wget unzip nano
 mkdir -p /opt && mkdir -p /staging/map_lists && mkdir -p /default_files
 adduser --disabled-password --gecos "OpenArena user" openarena
 mkdir -p /data

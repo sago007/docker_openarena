@@ -1,9 +1,0 @@
-/data/openarena/baseoa/games.log {
-        rotate 365000
-	daily
-        minsize 50M
-        compress
-        delaycompress
-        missingok
-        notifempty
- } 

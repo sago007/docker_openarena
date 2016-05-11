@@ -3,19 +3,21 @@ set -euo pipefail
 
 OPENARENA_HOME=/data/openarena
 BASEOA=${OPENARENA_HOME}/baseoa
-LOGROTATE_STATE=/data/logrotate
 
 mkdir -p "${BASEOA}"
 
 cd /default_files
 ls | xargs -n1 /opt/copy_to_if_not_existing.sh "${BASEOA}"
-cd /default_files2
-ls | xargs -n1 /opt/copy_to_if_not_existing.sh "/data/"
 
-if [ "$OA_LOGROTATE" = "1" ]
+if [ "$OA_ROTATE_LOGS" = "1" ]
 then
-mkdir -p "${LOGROTATE_STATE}"
-logrotate -s "${LOGROTATE_STATE}/state" /data/games_log.logrotate
+  NEWLOGFILENAME="$BASEOA/games.log.$(date --iso-8601).gz"
+  CURRENT_SIZE=$(du -k "$BASEOA/games.log" | cut -f 1)
+  if ! [ -f "$NEWLOGFILENAME" ] && [ $CURRENT_SIZE -gt 50000 ]
+  then
+    gzip < "$BASEOA/games.log" > ${NEWLOGFILENAME}
+    > "$BASEOA/games.log" # Truncates file
+  fi
 fi
 
 SERVER_ARGS="+set fs_homepath /data/openarena +set net_port ${OA_PORT} +exec server_config_sample.cfg +map $OA_STARTMAP"
