@@ -40,6 +40,9 @@ rm -rf "OpenArena 0.8.8 r28.app"
 rm *.x86_64
 mv /staging/openarena_engine*/oa_ded.x86_64 ./
 chown -R openarena.openarena /opt
+chmod o+r -R /opt
+chmod o+r -R /default_files
+find /opt -type d -execdir chmod 755 {} +
 
 rm -rf /staging
 rm -rf /tmp/* /var/tmp/*
