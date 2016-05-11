@@ -26,7 +26,6 @@ cd /staging/map_lists && unzip /opt/openarena/baseoa/pak6-patch088.pk3 && ls *.o
 
 chown openarena.openarena /data
 chown -R openarena.openarena /opt
-chown -R openarena.openarena /opt
 chown -R openarena.openarena /default_files
 
 apt-get purge -y wget unzip
@@ -40,6 +39,7 @@ rm -rf OpenArena.app
 rm -rf "OpenArena 0.8.8 r28.app"
 rm *.x86_64
 mv /staging/openarena_engine*/oa_ded.x86_64 ./
+chown -R openarena.openarena /opt
 
 rm -rf /staging
 rm -rf /tmp/* /var/tmp/*
