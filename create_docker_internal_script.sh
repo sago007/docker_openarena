@@ -3,7 +3,7 @@ set -euo pipefail
 
 #The whole purpose of this script is to have an readable alternative that can build the image in one go
 
-apt-get update && apt-get install -y wget unzip nano
+apt-get update && apt-get install -y wget unzip nano logrotate
 mkdir -p /opt && mkdir -p /staging/map_lists && mkdir -p /default_files
 adduser --disabled-password --gecos "OpenArena user" openarena
 mkdir -p /data
@@ -14,6 +14,7 @@ then
 cd /staging && wget http://download.tuxfamily.org/openarena/rel/088/openarena-0.8.8.zip -O openarena-0.8.8.zip
 fi 
 cd /staging && wget http://files.poulsander.com/~poul19/public_files/oa/dev088/openarena_engine_2016-04-23_2d555ac662aef135c47d473d1d61a99b69cad14a.zip
+#This can be used to get the gamecode. Not needed at the moment.
 cd /staging && wget http://files.poulsander.com/~poul19/public_files/oa/dev088/openarena_gamecode_2015-10-01_b767acae0de31968331f9182c6afbab1376954b8.zip
 
 

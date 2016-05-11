@@ -3,12 +3,16 @@ MAINTAINER poul@poulsander.com
 #For development purposes it may be preferable to download the file and COPY it into the container 
 #COPY openarena-0.8.8.zip /staging/
 COPY move_to_default_files.sh /staging/
+#Default files to be copied to /data/openarena/baseoa if not exits
 COPY server_config_sample.cfg /default_files/
+#Default files to be copied to /data if not exists
+COPY games_log.logrotate /default_files2/
 COPY create_docker_internal_script.sh /staging/
 RUN /staging/create_docker_internal_script.sh
 COPY copy_to_if_not_existing.sh /opt/
 COPY openarena_start_script.sh /opt/
 
+#All persistant data is stored under /data. Both config and logs
 VOLUME ["/data"]
 
 #OpenArena needs this one port. 
@@ -18,6 +22,7 @@ EXPOSE 27960/udp
 #OA_STARTMAP sets the first map to load. This is required because the server does not start until a map is loaded.
 ENV OA_STARTMAP oasago2
 ENV OA_PORT 27960
+ENV OA_LOGROTATE 1
 
 USER openarena
 
