@@ -3,20 +3,21 @@ set -euo pipefail
 
 OPENARENA_HOME=/data/openarena
 BASEOA=${OPENARENA_HOME}/baseoa
+LOGFILE="$BASEOA/games.log"
 
 mkdir -p "${BASEOA}"
 
 cd /default_files
 ls | xargs -n1 /opt/copy_to_if_not_existing.sh "${BASEOA}"
 
-if [ "$OA_ROTATE_LOGS" = "1" ]
+if [ "$OA_ROTATE_LOGS" = "1" ] && [ -f "$LOGFILE" ]
 then
-  NEWLOGFILENAME="$BASEOA/games.log.$(date --iso-8601).gz"
-  CURRENT_SIZE=$(du -k "$BASEOA/games.log" | cut -f 1)
+  NEWLOGFILENAME="$LOGFILE.$(date --iso-8601).gz"
+  CURRENT_SIZE=$(du -k "$LOGFILE" | cut -f 1)
   if ! [ -f "$NEWLOGFILENAME" ] && [ $CURRENT_SIZE -gt 50000 ]
   then
-    gzip < "$BASEOA/games.log" > ${NEWLOGFILENAME}
-    > "$BASEOA/games.log" # Truncates file
+    gzip < "$LOGFILE" > ${NEWLOGFILENAME}
+    > "$LOGFILE" # Truncates file
   fi
 fi
 
