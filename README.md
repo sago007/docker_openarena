@@ -44,3 +44,13 @@ maps_tourney.cfg
 server_config_sample.cfg
 ```
 You can edit them to suit your need... or keep them
+
+# Environment variables
+There are 3 variables that can be set:
+
+ * OA_STARTMAP - The the first map that the server loads (default oasago2)
+ * OA_PORT - The port that the game listens on (default 27960)
+ * OA_ROTATE_LOGS - Should the log be rotated? (default 1 = true)
+
+# Log rotation
+If the environment OA_ROTATE_LOGS is set to "1" (witch is the default value) then "games.log" will be rotated up to once a day if the size exceeds ~50 MB. The logs will only be rotated on startup/restart. Old logs will be stored in the format "games.log.YYYY-MM-DD.gz" (this is the reason that we can only store once a day).
