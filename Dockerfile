@@ -3,6 +3,7 @@ MAINTAINER poul@poulsander.com
 #For development purposes it may be preferable to download the file and COPY it into the container 
 #COPY openarena-0.8.8.zip /staging/
 COPY move_to_default_files.sh /staging/
+COPY openarena_files.md5 /staging/
 #Default files to be copied to /data/openarena/baseoa if not exits
 COPY server_config_sample.cfg /default_files/
 COPY create_docker_internal_script.sh /staging/

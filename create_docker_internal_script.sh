@@ -17,6 +17,11 @@ cd /staging && wget http://files.poulsander.com/~poul19/public_files/oa/dev088/o
 #This can be used to get the gamecode. Not needed at the moment.
 cd /staging && wget http://files.poulsander.com/~poul19/public_files/oa/dev088/openarena_gamecode_2015-10-01_b767acae0de31968331f9182c6afbab1376954b8.zip
 
+#The following lines can be used to generate the md5sums
+#md5sum openarena_engine_2016-04-23_2d555ac662aef135c47d473d1d61a99b69cad14a.zip
+#md5sum openarena_gamecode_2015-10-01_b767acae0de31968331f9182c6afbab1376954b8.zip
+#md5sum openarena-0.8.8.zip
+md5sum --check openarena_files.md5
 
 cd /staging && mv openarena-0.8.8.zip openarena.zip
 cd /staging && unzip /staging/openarena.zip -d /opt && rm /staging/openarena.zip
