@@ -20,7 +20,7 @@ EXPOSE 27960/udp
 
 #This is environments you can give to Docker.
 #OA_STARTMAP sets the first map to load. This is required because the server does not start until a map is loaded.
-ENV OA_STARTMAP oasago2
+ENV OA_STARTMAP dm4ish
 ENV OA_PORT 27960
 ENV OA_ROTATE_LOGS 1
 
