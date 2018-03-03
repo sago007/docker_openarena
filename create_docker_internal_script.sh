@@ -12,7 +12,7 @@ mkdir -p /data
 if ! [ -f "/staging/openarena-0.8.8.zip" ]
 then
 cd /staging && wget http://download.tuxfamily.org/openarena/rel/088/openarena-0.8.8.zip -O openarena-0.8.8.zip
-fi 
+fi
 cd /staging && wget http://files.poulsander.com/~poul19/public_files/oa/dev088/openarena_engine_2016-04-23_2d555ac662aef135c47d473d1d61a99b69cad14a.zip
 #This can be used to get the gamecode. Not needed at the moment.
 cd /staging && wget http://files.poulsander.com/~poul19/public_files/oa/dev088/openarena_gamecode_2015-10-01_b767acae0de31968331f9182c6afbab1376954b8.zip
@@ -51,3 +51,4 @@ find /opt -type d -execdir chmod 755 {} +
 
 rm -rf /staging
 rm -rf /tmp/* /var/tmp/*
+rm -rf /var/lib/apt/lists/*

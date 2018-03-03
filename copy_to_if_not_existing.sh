@@ -3,7 +3,7 @@ set -euo pipefail
 
 DESTDIR=$1
 FILENAME=$2
-DESTFILE=${1}/${2}
+DESTFILE=${DESTDIR}/${FILENAME}
 
 if [ -f "$DESTFILE" ]
 then
