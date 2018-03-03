@@ -34,8 +34,7 @@ CMD /opt/openarena_start_script.sh
 
 #Be warned that the port number must be changed in all three places for the server to appear in the serverlist (2016-05-02). I have not examinated if this is a bug or design flaw in ioquake3 or Docker but the server port is not reported correctly to the master server.
 
-#To change the config you can start a bash shell, install vim (or other editor) and edit the config:
+#To change the config you can start a bash shell and edit the config:
 #Start with: docker run -it --rm -v openarena_data:/data --user 1000 sago007/openarena bash
 #And then execute:
-#apt-get install -y vim
-#vim /data/openarena/baseoa/server_config_sample.cfg
+#nano /data/openarena/baseoa/server_config_sample.cfg

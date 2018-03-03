@@ -1,4 +1,4 @@
-FROM sago007/openarena:1.0.8.8.1
+FROM sago007/openarena:latest
 MAINTAINER poul@poulsander.com
 
 USER root

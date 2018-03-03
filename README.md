@@ -24,8 +24,7 @@ docker run -it --rm -v openarena_data:/data --user 1000 sago007/openarena bash
 ```
 And then do:
 ```
-apt-get install -y vim
-vim /data/openarena/baseoa/server_config_sample.cfg
+nano /data/openarena/baseoa/server_config_sample.cfg
 ```
 
 On server start the following files will be created in "/data/openarena/baseoa" if they do not exist:
