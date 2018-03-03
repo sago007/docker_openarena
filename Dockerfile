@@ -1,5 +1,6 @@
-FROM debian:8
+FROM debian:9
 MAINTAINER poul@poulsander.com
+
 #For development purposes it may be preferable to download the file and COPY it into the container
 #COPY openarena-0.8.8.zip /staging/
 COPY move_to_default_files.sh /staging/
