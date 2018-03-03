@@ -7,10 +7,10 @@ This image is good if:
  * You want to host an OpenArena 0.8.8 server
  * You want an image that works out of the box
  * You want an image that is easy to configure.
- 
+
 This image is not good if:
  * You want to host a server with a mod not based of OpenArena 0.8.8
- 
+
 To run do something like:
 ```
 docker run -it -e "OA_STARTMAP=dm4ish" -e "OA_PORT=27960" --rm -p 27960:27960/udp -v openarena_data:/data sago007/openarena
@@ -20,7 +20,7 @@ Be warned that all three port numbers must be changed if you want to run on anot
 
 To change the config you can start a bash instance with:
 ```
-docker run -it --rm -v openarena_data:/data --user 0 sago007/openarena bash
+docker run -it --rm -v openarena_data:/data --user 1000 sago007/openarena bash
 ```
 And then do:
 ```
